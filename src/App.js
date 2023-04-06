@@ -1,20 +1,17 @@
-import React from 'react';
-import { Navigation } from './components/Navigation';
-import { PokemonCard } from './components/PokemonCard';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./routes/Home";
+import Details from "./routes/PokemonDetails";
+import Favourites from "./routes/Favourite";
 
-const LIMIT = 150;
-const pokeApi = `https://pokeapi.co/api/v2/pokemon/?limit=${LIMIT}`;
-
-function App() {
-
+export default function App() {
   return (
-    <div data-testid="app">
-      <Navigation />
-
-      <h1>Pokemon should appear here</h1>
-      <PokemonCard />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details" element={<Details />} />
+        <Route path="/favourites" element={<Favourites />} />
+      </Routes>
+    </Router>
   );
 }
-
-export { App };

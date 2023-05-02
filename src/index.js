@@ -1,10 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App";
+import { FavoritesProvider } from "./components/FavoritesProvider";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
+ReactDOM.render(
+  <FavoritesProvider>
     <App />
-  </React.StrictMode>
+  </FavoritesProvider>,
+  document.getElementById("root")
 );
